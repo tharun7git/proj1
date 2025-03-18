@@ -3,47 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camera Gallery</title>
+    <title>Gallery Home</title>
     <style>
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
             gap: 10px;
-            padding: 20px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .back-button {
             margin: 20px;
-            padding: 10px 15px;
+        }
+        .folder-button {
+            padding: 10px 20px;
+            font-size: 16px;
             background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
         }
-        .back-button:hover {
+        .folder-button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Camera Folder</h1>
-    <a href="/" class="back-button">Back to Home</a>
-    <div class="gallery">
-        {% for photo in photos %}
-            <div>
-                <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
-                <p>{{ photo.title }}</p>
-                <p>{{ photo.description }}</p>
-            </div>
-        {% empty %}
-            <p>No images found in Camera folder.</p>
-        {% endfor %}
+    <h1>Gallery Folders</h1>
+    <div class="button-container">
+        <button class="folder-button" onclick="location.href='/camera/'">Camera</button>
+        <button class="folder-button">Screenshots</button>
+        <button class="folder-button">WhatsApp</button>
+        <button class="folder-button">Edits</button>
+        <button class="folder-button">Downloads</button>
+        <button class="folder-button">Others</button>
     </div>
 </body>
 </html>
